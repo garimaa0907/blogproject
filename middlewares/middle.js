@@ -12,13 +12,14 @@ const authenticate = function (req, res, next) {
                 next()
             }
             else {
-                return res.status(401).send({ status: false, msg: "Invalid token" })
+                return res.status(401).send({ status: false, message: "Invalid token" })
             }
         }
-        else return res.status(401).send("Token Is Missing")
+        else return res.status(401).send({status : false , message: "Token Is Missing"})
     }
     catch (err) {
         res.status(500).send({status:false,message:err.message})
     }
 }
-module.exports.authenticate=authenticate
+
+module.exports.authenticate = authenticate
